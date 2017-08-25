@@ -55,11 +55,19 @@ public class Order implements Serializable {
         return orderID;
     }
 
+    public Customer getCustomer() {
+        return customer;
+    }
+    
     /**
      * Setters
      */
     
     public void setOrderID(Integer orderID) {
         this.orderID = orderID;
+    }
+    
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 }

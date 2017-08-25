@@ -6,6 +6,7 @@
 package jpacontrol;
 
 import entity.Customer;
+import entity.Order;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -56,6 +57,18 @@ public class Facade {
         Order o = new Order();
         o.setOrderID(orderId);
         em.persist(o);
+    }
+    
+    public void addOrderToCustomer(Order order, Customer customer) {
+        customer.addOrder(order);
+    }
+    
+    public List getOrder(Integer id) {
+        Query query = em.createQuery("SELECT * FROM ORDERS WHERE id = ");
+        query.setParameter("id", id);
+        List order = query.getResultList();
+        
+        return order;
     }
     
 }

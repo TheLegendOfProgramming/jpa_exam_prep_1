@@ -53,6 +53,12 @@ public class Customer implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
-
+    
+    public void addOrder(Order order) {
+        this.orders.add(order);
+        if (order.getCustomer() != this) {
+            order.setCustomer(this);
+        }
+    }
     
 }
